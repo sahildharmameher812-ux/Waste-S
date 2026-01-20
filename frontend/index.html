@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Waste Segregation Assistant 🗑️</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1>🗑️ AI Waste Segregation</h1>
+            <p>Upload waste photo → Get complete disposal guidance</p>
+        </header>
+
+        <!-- Upload Section -->
+        <div class="upload-section">
+            <div class="upload-box" id="uploadBox">
+                <input type="file" id="fileInput" accept="image/*" hidden>
+                <div class="upload-content" id="uploadContent">
+                    <span class="upload-icon">📷</span>
+                    <p>Click to upload or drag & drop</p>
+                    <span class="upload-hint">Supports: JPG, PNG, WEBP</span>
+                </div>
+                <img id="previewImage" class="preview-image" alt="Preview">
+            </div>
+            
+            <button id="classifyBtn" class="classify-btn" disabled>
+                🔍 Classify Waste
+            </button>
+        </div>
+
+        <!-- Loading -->
+        <div id="loading" class="loading hidden">
+            <div class="spinner"></div>
+            <p>AI analyzing your waste...</p>
+        </div>
+
+        <!-- Results Section -->
+        <div id="results" class="results hidden">
+            <h2>📊 Classification Results</h2>
+            
+            <div class="result-card">
+                <div class="detected-object">
+                    <span class="label">Detected:</span>
+                    <span id="objectName" class="value">-</span>
+                    <span id="confidence" class="confidence">-</span>
+                </div>
+            </div>
+
+            <div class="category-card" id="categoryCard">
+                <div class="category-header">
+                    <span id="categoryIcon" class="category-icon">🔵</span>
+                    <div>
+                        <h3 id="categoryName">DRY WASTE</h3>
+                        <p id="categoryHindi">सूखा कचरा</p>
+                    </div>
+                </div>
+                <div class="dustbin-info">
+                    <p><strong>🗑️ Dustbin:</strong> <span id="dustbinType">-</span></p>
+                    <p><strong>📝 Examples:</strong> <span id="examples">-</span></p>
+                </div>
+            </div>
+
+            <!-- AI Guidance Section (NEW!) -->
+            <div class="ai-guidance">
+                <h3>🤖 AI Guidance</h3>
+                <div id="guidanceText" class="guidance-content">
+                    Loading guidance...
+                </div>
+            </div>
+
+            <!-- All Predictions -->
+            <div class="all-predictions">
+                <h4>🔬 All Predictions:</h4>
+                <ul id="predictionsList"></ul>
+            </div>
+
+            <button id="resetBtn" class="reset-btn">
+                🔄 Upload New Image
+            </button>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>Made with ❤️ for Swachh Bharat | AI-Powered Complete Waste Management</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
